@@ -7,10 +7,10 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc --outDir ./build",
+    "deploy": "dotenv -e .env.production ./make.sh",
     "dev": "nodemon ./src/index.ts",
     "test": "jest",
-    "test:watch": "jest --watchAll",
-    "deploy": "dotenv -e .env.production ./make.sh"
+    "test:watch": "jest --watchAll"
   },
   "dependencies": {
     "faker": "5.5.3"
