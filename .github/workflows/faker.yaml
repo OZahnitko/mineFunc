@@ -105,3 +105,10 @@ jobs:
 
       - name: Show where the zip was downloaded
         run: ls -la
+
+      - name: dep time
+        working-directory: ./terraform
+        run: |
+          aws lambda update-function-code \
+            --function-name "$(terraform output -raw lambda_function_name)" \
+            --zip-file fileb://../function.zip
