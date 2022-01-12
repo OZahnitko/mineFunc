@@ -65,3 +65,6 @@ jobs:
 
       - name: Unzip function.zip
         run: unzip function.zip
+
+      - name: Show the result of the unzipping
+        run: ls -la
