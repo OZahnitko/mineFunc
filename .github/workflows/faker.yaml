@@ -1,25 +1,31 @@
 name: Faker
 on: push
 jobs:
-  # test:
-  #   name: Test the application
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
+  test:
+    name: Test the application
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-  #     - name: Install dependencies
-  #       run: npm install
+      - name: Cache node_modules
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: "npm"
 
-  #     - name: Run test
-  #       run: npm run test
+      - name: Install dependencies
+        run: npm install
 
-  #     - name: Show the dir
-  #       run: ls -la
+      - name: Run test
+        run: npm run test
+
+      - name: Show the dir
+        run: ls -la
   build:
     name: Build function
     runs-on: ubuntu-latest
-    # needs: [test]
+    needs: [test]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
