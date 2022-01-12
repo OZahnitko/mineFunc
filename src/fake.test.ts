@@ -10,6 +10,6 @@ describe("Paragraph tests", () => {
   });
 
   test("Accepts parameters", () => {
-    expect(paragraph({ quantity: 2 })).toBeFalsy();
+    expect(paragraph({ quantity: 2 })).toBeTruthy();
   });
 });
