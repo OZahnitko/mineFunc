@@ -93,7 +93,7 @@ jobs:
         working-directory: ./terraform
         run: |
           terraform output -raw lambda_function_name
-          sed -i "s/LAMBDA_FUNCTION_NAME=.*/LAMBDA_FUNCTION_NAME=${terraform output -raw lambda_function_name}/" ../.env.production
+          sed -i "s/LAMBDA_FUNCTION_NAME=.*/LAMBDA_FUNCTION_NAME=$(terraform output -raw lambda_function_name)/" ../.env.production
 
       - name: See what's in env
         run: cat .env.production
