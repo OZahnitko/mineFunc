@@ -34,12 +34,19 @@ jobs:
         run: cp package.json ./build
 
       - name: Install production dependencies
-        run: |
-          cd build
-          npm install --only=prod
+        working-directory: ./build
+        run: npm install --only=prod
 
       - name: Zip the function
+        working-directory: ./build
         run: zip -r function.zip .
 
+      - name: Archive function.zip
+        uses: actions/upload-artifact@v2
+        with:
+          name: function.zip
+          path: build/function.zip
+
       - name: Show content of the dir now
+        working-directory: ./build
         run: ls -la
