@@ -30,5 +30,13 @@ jobs:
       - name: Build function
         run: npm run build
 
+      - name: Check if zip
+        run: zip -v
+
       - name: Show dir
         run: ls -la
+
+      - name: Show content of build
+        run: |
+          cd build
+          ls -la
