@@ -1,4 +1,4 @@
-import { paragraph } from "./fake";
+import { paragraph } from "./src/fake";
 
 interface dataItem {
   [key: string]: string;
