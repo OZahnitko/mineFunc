@@ -30,13 +30,16 @@ jobs:
       - name: Build function
         run: npm run build
 
-      - name: Check if zip
-        run: zip -v
+      - name: Copy package.json
+        run: cp package.json ./build
 
-      - name: Show dir
-        run: ls -la
-
-      - name: Show content of build
+      - name: Install production dependencies
         run: |
           cd build
-          ls -la
+          npm install --only=prod
+
+      - name: Zip the function
+        run: zip -r function.zip .
+
+      - name: Show content of the dir now
+        run: ls -la
