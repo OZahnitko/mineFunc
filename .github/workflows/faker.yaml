@@ -91,7 +91,12 @@ jobs:
 
       - name: Lambda Function name
         working-directory: ./terraform
-        run: terraform output -raw lambda_function_name
+        run: |
+          terraform output -raw lambda_function_name
+          sed -i "s/LAMBDA_FUNCTION_NAME=.*/LAMBDA_FUNCTION_NAME=${terraform output -raw lambda_function_name}/" ../.env.production
+
+      - name: See what's in env
+        run: cat .env.production
 
       - name: Download function.zip
         uses: actions/download-artifact@v2
