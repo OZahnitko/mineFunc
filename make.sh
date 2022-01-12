@@ -17,9 +17,6 @@ echo "Node modules successfully installed."
 echo 'Zipping function...'
 zip -r function.zip .
 echo "Zipped!"
-# echo "Uploading to AWS..."
-# aws lambda update-function-code --function-name $LAMBDA_FUNCTION_NAME --zip-file fileb://function.zip
-# echo "Removing the build directory..."
-# cd ..
-# rm -rf build
-# echo "ALL DONE!!!"
+echo "Uploading to AWS..."
+aws lambda update-function-code --function-name $LAMBDA_FUNCTION_NAME --zip-file fileb://function.zip
+echo "ALL DONE!!!"

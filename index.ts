@@ -7,5 +7,5 @@ interface dataItem {
 export const handler = async (event: dataItem[]) => ({
   statusCode: 200,
   body: JSON.stringify(event),
-  message: paragraph(),
+  message: paragraph({ quantity: 10 }),
 });
