@@ -8,11 +8,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: See if yarn is installed
-        run: yarn -v
-
       - name: Install dependencies
-        run: npm install
+        run: yarn
 
       - name: Run test
-        run: npm run test
+        run: yarn test
