@@ -27,9 +27,15 @@ resource "aws_iam_role" "lambda" {
             "logs:CreateLogStream",
             "logs:PutLogEvents"
           ],
-          "Resource" : [
-            "${aws_cloudwatch_log_group.faker.arn}:*"
-          ]
+          "Resource" : ["${aws_cloudwatch_log_group.faker.arn}:*"]
+        },
+        {
+          "Effect" : "Allow",
+          "Action" : [
+            "xray:PutTraceSegments",
+            "xray:PutTelemetryRecords"
+          ],
+          "Resource" : ["*"]
         }
       ]
     })
